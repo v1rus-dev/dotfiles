@@ -1,0 +1,69 @@
+* {
+  font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
+}
+
+.control-center {
+  background: rgba(24, 24, 37, 0.92);
+  border: 1px solid rgba(137, 180, 250, 0.35);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.notification {
+  background: rgba(30, 30, 46, 0.96);
+  border: 1px solid rgba(137, 180, 250, 0.25);
+  border-radius: 16px;
+  padding: 10px;
+  margin: 8px;
+}
+
+.notification-content {
+  background: transparent;
+}
+
+.summary {
+  color: #cdd6f4;
+  font-weight: 700;
+}
+
+.body {
+  color: #bac2de;
+}
+
+.time {
+  color: #7f849c;
+}
+
+.close-button {
+  background: #f38ba8;
+  color: #1e1e2e;
+  border-radius: 999px;
+}
+
+.widget-title {
+  color: #cdd6f4;
+  font-weight: 700;
+  margin: 8px;
+}
+
+.widget-dnd {
+  background: rgba(49, 50, 68, 0.8);
+  color: #cdd6f4;
+  border-radius: 14px;
+  padding: 8px;
+}
+
+.widget-dnd > switch {
+  background: #45475a;
+  border-radius: 999px;
+}
+
+.widget-dnd > switch:checked {
+  background: #89b4fa;
+}
+
+.widget-dnd > switch slider {
+  background: #cdd6f4;
+  border-radius: 999px;
+}

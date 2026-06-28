@@ -1,0 +1,5 @@
+local terminal = "kitty"
+local browser = "firefox"
+local fileManager = "dolphin"
+local menu = "wofi --show drun"
+local mainMod = "SUPER"

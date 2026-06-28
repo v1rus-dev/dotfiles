@@ -1,0 +1,8 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    drun-display-format: "{name}";
+}
+
+@theme "~/.config/rofi/theme.rasi"

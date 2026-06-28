@@ -1,0 +1,26 @@
+[user]
+	name = Yegor Cheprasov
+	email = yegorcheprasov@gmail.com
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[core]
+	pager = less -FRX
+	editor = nano
+[pull]
+	rebase = false
+[fetch]
+	prune = true
+[rerere]
+	enabled = true
+[push]
+	autoSetupRemote = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	colorMoved = zebra
+[branch]
+	sort = -committerdate
+[includeIf "gitdir:/home/yegor/Projects/Work/Modsen/**"]
+    path = /home/yegor/.gitconfig-work
