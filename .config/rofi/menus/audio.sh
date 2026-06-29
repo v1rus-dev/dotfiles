@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
+source "$HOME/.config/rofi/menus/lib.sh"
 
 choice=$(printf "%s\n" \
 "󰕾 Volume Mixer" \
 "󰓃 PulseAudio Control" \
 "󰕿 Mute Output" \
 "󰍬 Mute Microphone" \
-| rofi -dmenu -i -p "Audio")
+| menu "Audio")
 
 case "$choice" in
-  "󰕾 Volume Mixer") pwvucontrol ;;
-  "󰓃 PulseAudio Control") pavucontrol ;;
-  "󰕿 Mute Output") wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
-  "󰍬 Mute Microphone") wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle ;;
+  "󰕾 Volume Mixer")       run pwvucontrol ;;
+  "󰓃 PulseAudio Control") run pavucontrol ;;
+  "󰕿 Mute Output")        run wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
+  "󰍬 Mute Microphone")    run wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle ;;
 esac

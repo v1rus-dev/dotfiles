@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source "$HOME/.config/rofi/menus/lib.sh"
 
 choice=$(printf "%s\n" \
 "󰌾 Lock" \
@@ -6,12 +7,12 @@ choice=$(printf "%s\n" \
 "󰗼 Logout" \
 "󰜉 Reboot" \
 "󰐥 Shutdown" \
-| rofi -dmenu -i -p "Power")
+| menu "Power")
 
 case "$choice" in
-  "󰌾 Lock") hyprlock ;;
-  "󰤄 Suspend") systemctl suspend ;;
-  "󰗼 Logout") hyprctl dispatch exit ;;
-  "󰜉 Reboot") systemctl reboot ;;
-  "󰐥 Shutdown") systemctl poweroff ;;
+  "󰌾 Lock")     run hyprlock ;;
+  "󰤄 Suspend")  run systemctl suspend ;;
+  "󰗼 Logout")   run hyprctl dispatch exit ;;
+  "󰜉 Reboot")   run systemctl reboot ;;
+  "󰐥 Shutdown") run systemctl poweroff ;;
 esac

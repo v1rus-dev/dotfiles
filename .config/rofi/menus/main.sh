@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source "$HOME/.config/rofi/menus/lib.sh"
 
 choice=$(printf "%s\n" \
 "󰕾 Audio" \
@@ -10,16 +11,16 @@ choice=$(printf "%s\n" \
 "󰍉 Screenshot" \
 "󰚰 Reload Hyprland" \
 "󰃢 Clear Notifications" \
-| rofi -dmenu -i -p "Command Palette")
+| menu "Command Palette")
 
 case "$choice" in
-  "󰕾 Audio") ~/.config/rofi/menus/audio.sh ;;
-  "󰐥 Power") ~/.config/rofi/menus/power.sh ;;
-  "󰋩 Wallpapers") wallpaper-select ;;
-  "󰍹 Displays") hyprland-dialog ;;
-  "󰖩 Network") nm-connection-editor ;;
-  "󰂯 Bluetooth") blueman-manager ;;
-  "󰍉 Screenshot") screenshot-area ;;
-  "󰚰 Reload Hyprland") hyprctl reload ;;
-  "󰃢 Clear Notifications") swaync-client -C ;;
+  "󰕾 Audio")               exec "$HOME/.config/rofi/menus/audio.sh" ;;
+  "󰐥 Power")               exec "$HOME/.config/rofi/menus/power.sh" ;;
+  "󰋩 Wallpapers")          run wallpaper-select ;;
+  "󰍹 Displays")            run wdisplays ;;
+  "󰖩 Network")             run nm-connection-editor ;;
+  "󰂯 Bluetooth")           run blueman-manager ;;
+  "󰍉 Screenshot")          run screenshot-area ;;
+  "󰚰 Reload Hyprland")     run hyprctl reload ;;
+  "󰃢 Clear Notifications") run swaync-client -C ;;
 esac
