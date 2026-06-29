@@ -11,7 +11,7 @@ window#waybar {
   color: #cdd6f4;
 }
 
-.modules-center,
+/* Only the right group is a shared card; center is unused (no empty box). */
 .modules-right {
   background: rgba(30, 30, 46, 0.82);
   border: 1px solid rgba(180, 190, 254, 0.18);
@@ -68,8 +68,9 @@ window#waybar {
   padding: 4px 10px;
 }
 
-/* No focused window -> no empty floating card. */
-#window.empty {
+/* Empty workspace (no window) -> hide the window card entirely.
+   Waybar puts the `empty` class on window#waybar, not on #window. */
+window#waybar.empty #window {
   background: transparent;
   border-color: transparent;
   padding: 0;

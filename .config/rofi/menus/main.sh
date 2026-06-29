@@ -16,7 +16,7 @@ choice=$(printf "%s\n" \
 case "$choice" in
   "󰕾 Audio")               exec "$HOME/.config/rofi/menus/audio.sh" ;;
   "󰐥 Power")               exec "$HOME/.config/rofi/menus/power.sh" ;;
-  "󰋩 Wallpapers")          run wallpaper-select ;;
+  "󰋩 Wallpapers")          run waypaper ;;
   "󰍹 Displays")            run wdisplays ;;
   "󰖩 Network")             run nm-connection-editor ;;
   "󰂯 Bluetooth")           run blueman-manager ;;
