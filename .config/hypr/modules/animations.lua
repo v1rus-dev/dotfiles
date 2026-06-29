@@ -43,6 +43,15 @@ hl.curve("quick", {
     },
 })
 
+-- Smooth ease-out (easeOutCubic), gentle start + soft landing — easy on the eyes
+hl.curve("smooth", {
+    type = "bezier",
+    points = {
+        { 0.33, 1 },
+        { 0.68, 1 },
+    },
+})
+
 -- Spring
 hl.curve("easy", {
     type = "spring",
@@ -69,52 +78,52 @@ hl.animation({
 hl.animation({
     leaf = "windows",
     enabled = true,
-    speed = 4.79,
-    spring = "easy",
+    speed = 3.5,
+    bezier = "smooth",
 })
 
 hl.animation({
     leaf = "windowsIn",
     enabled = true,
-    speed = 4.1,
-    spring = "easy",
-    style = "popin 87%",
+    speed = 3.5,
+    bezier = "smooth",
+    style = "popin 95%",
 })
 
 hl.animation({
     leaf = "windowsOut",
     enabled = true,
-    speed = 1.49,
-    bezier = "linear",
-    style = "popin 87%",
+    speed = 3,
+    bezier = "smooth",
+    style = "popin 95%",
 })
 
 hl.animation({
     leaf = "fadeIn",
     enabled = true,
-    speed = 1.73,
-    bezier = "almostLinear",
+    speed = 2.5,
+    bezier = "smooth",
 })
 
 hl.animation({
     leaf = "fadeOut",
     enabled = true,
-    speed = 1.46,
-    bezier = "almostLinear",
+    speed = 2,
+    bezier = "smooth",
 })
 
 hl.animation({
     leaf = "fade",
     enabled = true,
-    speed = 3.03,
-    bezier = "quick",
+    speed = 2.5,
+    bezier = "smooth",
 })
 
 hl.animation({
     leaf = "layers",
     enabled = true,
-    speed = 3.81,
-    bezier = "easeOutQuint",
+    speed = 3.5,
+    bezier = "smooth",
 })
 
 hl.animation({
@@ -150,7 +159,7 @@ hl.animation({
 hl.animation({
     leaf = "workspaces",
     enabled = true,
-    speed = 1.94,
+    speed = 3,
     bezier = "almostLinear",
     style = "fade",
 })
@@ -158,7 +167,7 @@ hl.animation({
 hl.animation({
     leaf = "workspacesIn",
     enabled = true,
-    speed = 1.21,
+    speed = 3,
     bezier = "almostLinear",
     style = "fade",
 })
@@ -166,7 +175,7 @@ hl.animation({
 hl.animation({
     leaf = "workspacesOut",
     enabled = true,
-    speed = 1.94,
+    speed = 3,
     bezier = "almostLinear",
     style = "fade",
 })

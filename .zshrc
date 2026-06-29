@@ -33,10 +33,6 @@ eval "$(zoxide init zsh)"
 # Starship
 eval "$(starship init zsh)"
 
-# Plugins
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Aliases
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -la --icons --group-directories-first'
@@ -49,3 +45,15 @@ alias ...='cd ../..'
 alias update='sudo pacman -Syu'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias ff='fastfetch'
+
+# Android
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/emulator
+alias csync="$HOME/.claude/hooks/sync-settings.sh"
+
+# Plugins
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
