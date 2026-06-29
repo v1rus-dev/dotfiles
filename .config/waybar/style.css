@@ -1,80 +1,115 @@
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
-  font-size: 13px;
-  min-height: 0;
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
-  color: #cdd6f4;
+    background: transparent;
+    color: #cdd6f4;
 }
 
 /* Only the right group is a shared card; center is unused (no empty box). */
 .modules-right {
-  background: rgba(30, 30, 46, 0.82);
-  border: 1px solid rgba(180, 190, 254, 0.18);
-  border-radius: 8px;
-  padding: 4px 8px;
+    background: rgba(30, 30, 46, 0.82);
+    border: 1px solid rgba(180, 190, 254, 0.18);
+    border-radius: 8px;
+    padding: 4px 8px;
 }
 
 /* Left side: each module is its own separate card, not one shared box. */
 .modules-left {
-  background: transparent;
-  border: none;
-  padding: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Center: taskbar of running windows as its own card. */
+.modules-center {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* No shared container: each window is its own square card. */
+#taskbar {
+    background: transparent;
+    border: none;
+    padding: 2;
+}
+
+/* Each task = its own square card, fully clickable/highlightable (no inner padding). */
+#taskbar button {
+    background: rgba(30, 30, 46, 0.82);
+    border: 1px solid rgba(180, 190, 254, 0.18);
+    border-radius: 8px;
+    /* symmetric horizontal padding widens to a square AND centers the icon
+     (min-width would left-align it); no vertical margin -> fill bar height */
+    padding: 0 8px;
+    margin: 0 4px;
+}
+
+#taskbar button:hover {
+    background: rgba(137, 180, 250, 0.18);
+    border-color: rgba(180, 190, 254, 0.35);
+}
+
+#taskbar button.active {
+    background: rgba(137, 180, 250, 0.3);
+    border-color: #89b4fa;
 }
 
 /* spacing=0 globally, so left cards get their gap from a margin. */
 #custom-launcher,
 #workspaces,
 #window {
-  background: rgba(30, 30, 46, 0.82);
-  border: 1px solid rgba(180, 190, 254, 0.18);
-  border-radius: 8px;
-  margin-right: 8px;
+    background: rgba(30, 30, 46, 0.82);
+    border: 1px solid rgba(180, 190, 254, 0.18);
+    border-radius: 8px;
+    margin-right: 8px;
 }
 
 #custom-launcher {
-  color: #89b4fa;
-  font-size: 18px;
-  padding: 4px 10px;
+    color: #89b4fa;
+    font-size: 18px;
+    padding: 4px 10px;
 }
 
 #workspaces {
-  padding: 4px 6px;
+    padding: 4px 6px;
 }
 
 #workspaces button {
-  color: #6c7086;
-  padding: 0 8px;
-  margin: 0 2px;
-  border-radius: 6px;
+    color: #6c7086;
+    padding: 0 8px;
+    margin: 0 2px;
+    border-radius: 6px;
 }
 
 #workspaces button.active {
-  color: #11111b;
-  background: #89b4fa;
+    color: #11111b;
+    background: #89b4fa;
 }
 
 #workspaces button.urgent {
-  color: #11111b;
-  background: #f38ba8;
+    color: #11111b;
+    background: #f38ba8;
 }
 
 #window {
-  color: #cdd6f4;
-  padding: 4px 10px;
+    color: #cdd6f4;
+    padding: 4px 10px;
 }
 
 /* Empty workspace (no window) -> hide the window card entirely.
    Waybar puts the `empty` class on window#waybar, not on #window. */
 window#waybar.empty #window {
-  background: transparent;
-  border-color: transparent;
-  padding: 0;
-  margin-right: 0;
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+    margin-right: 0;
 }
 
 #tray,
@@ -84,53 +119,53 @@ window#waybar.empty #window {
 #clock,
 #language,
 #custom-power {
-  padding: 0 8px;
-  color: #cdd6f4;
+    padding: 0 8px;
+    color: #cdd6f4;
 }
 
 #language {
-  color: #fab387;
+    color: #fab387;
 }
 
 #network {
-  color: #94e2d5;
+    color: #94e2d5;
 }
 
 #pulseaudio {
-  color: #cba6f7;
+    color: #cba6f7;
 }
 
 #battery {
-  color: #a6e3a1;
+    color: #a6e3a1;
 }
 
 #battery.warning {
-  color: #f9e2af;
+    color: #f9e2af;
 }
 
 #battery.critical {
-  color: #f38ba8;
+    color: #f38ba8;
 }
 
 #clock {
-  color: #89b4fa;
+    color: #89b4fa;
 }
 
 #custom-power {
-  color: #f38ba8;
-  font-size: 16px;
+    color: #f38ba8;
+    font-size: 16px;
 }
 
 #custom-notification {
-  padding: 0 8px;
-  color: #cdd6f4;
+    padding: 0 8px;
+    color: #cdd6f4;
 }
 
 #custom-notification.notification {
-  color: #f9e2af;
+    color: #f9e2af;
 }
 
 #custom-notification.dnd-notification,
 #custom-notification.dnd-none {
-  color: #f38ba8;
+    color: #f38ba8;
 }
