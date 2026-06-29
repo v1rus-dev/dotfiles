@@ -12,7 +12,7 @@ choice=$(printf "%s\n" \
 case "$choice" in
   "󰌾 Lock")     run hyprlock ;;
   "󰤄 Suspend")  run systemctl suspend ;;
-  "󰗼 Logout")   run hyprctl dispatch exit ;;
+  "󰗼 Logout")   run uwsm stop ;;
   "󰜉 Reboot")   run systemctl reboot ;;
   "󰐥 Shutdown") run systemctl poweroff ;;
 esac

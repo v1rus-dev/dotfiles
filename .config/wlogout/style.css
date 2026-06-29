@@ -1,21 +1,26 @@
 * {
     background-image: none;
-    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 18px;
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 16px;
+    color: #cdd6f4;
+    text-shadow: none;
 }
 
+/* Dim crust overlay behind the button grid (matches rofi dim). */
 window {
-    background-color: rgba(12, 12, 18, 0.72);
+    background-color: rgba(17, 17, 27, 0.82);
 }
 
 button {
-    color: #ffffff;
-    background-color: rgba(30, 30, 46, 0.88);
-    border: 2px solid rgba(255, 255, 255, 0.08);
-    border-radius: 22px;
+    color: #cdd6f4;
+    /* surface0 card, same fill as rofi list elements */
+    background-color: rgba(49, 50, 68, 0.70);
+    /* lavender hairline border, kept in sync with waybar / rofi */
+    border: 1px solid rgba(180, 190, 254, 0.18);
+    border-radius: 14px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 28%;
+    background-size: 20%;
     margin: 18px;
     box-shadow: none;
 }
@@ -23,8 +28,9 @@ button {
 button:focus,
 button:active,
 button:hover {
-    background-color: rgba(49, 50, 68, 0.96);
-    border: 2px solid #89b4fa;
+    /* accent tint on hover, same as waybar taskbar hover */
+    background-color: rgba(137, 180, 250, 0.18);
+    border: 1px solid #89b4fa;
     color: #89b4fa;
 }
 
