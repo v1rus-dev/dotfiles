@@ -3,21 +3,21 @@
   "layer": "top",
   "position": "top",
   "height": 38,
-  "spacing": 8,
+  "spacing": 0,
   "margin-top": 8,
   "margin-left": 10,
   "margin-right": 10,
 
   "modules-left": [
     "custom/launcher",
-    "hyprland/workspaces"
-  ],
-
-  "modules-center": [
+    "hyprland/workspaces",
     "hyprland/window"
   ],
 
+  "modules-center": [],
+
   "modules-right": [
+    "hyprland/language",
     "tray",
     "network",
     "custom/notification",
@@ -64,6 +64,17 @@
     "separate-outputs": true
   },
 
+  "hyprland/language": {
+    // Bound to the physical keyboard (main device in `hyprctl devices`);
+    // without keyboard-name the module fails with "argument not found".
+    "keyboard-name": "nuphy-nuphy-wh80-dongle",
+    // This Waybar build (0.15.0) crashes ("argument not found") on both the
+    // {short} placeholder and any format-<lang> override, so neither is usable
+    // for US/RU labels. {shortDescription} (en/ru) is the compact form that works.
+    "format": "  {shortDescription}",
+    "on-click": "hyprctl switchxkblayout current next"
+  },
+
   "tray": {
     "icon-size": 18,
     "spacing": 10
@@ -71,7 +82,7 @@
 
   "network": {
     "format-wifi": "  {essid}",
-    "format-ethernet": "󰈀  {ipaddr}",
+    "format-ethernet": "󰈀  Wired",
     "format-disconnected": "󰖪  Offline",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
   },
