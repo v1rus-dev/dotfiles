@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source "$HOME/.config/rofi/menus/lib.sh"
+source "$HOME/.config/wofi/menus/lib.sh"
 
 choice=$(printf "%s\n" \
 "󰌾 Lock" \

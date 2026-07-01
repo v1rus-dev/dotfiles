@@ -1,0 +1,8 @@
+show=drun
+width=500
+prompt=Search
+insensitive=true
+allow_markup=true
+dynamic_lines=true
+hide_scroll=true
+gtk_dark=true
