@@ -19,6 +19,7 @@
       "bluetooth",
       "pulseaudio",
       "network",
+      "hyprland/language",
       "idle_inhibitor",
       "group/tray-drawer",
       "custom/notification",
@@ -113,6 +114,10 @@
     "format-linked": "{ifname} (No IP) 󰊗",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "nm-connection-editor",
+  },
+  "hyprland/language": {
+    "format": "󰌌 {short}",
+    "on-click": "hyprctl switchxkblayout current next",
   },
   "idle_inhibitor": {
     "format": "{icon}",
