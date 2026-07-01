@@ -109,6 +109,7 @@ button {
 #bluetooth,
 #pulseaudio,
 #network,
+#language,
 #idle_inhibitor,
 #tray,
 #custom-notification {
@@ -135,6 +136,9 @@ button {
 #network {
     color: #4fd6be;
 } /* teal */
+#language {
+    color: #ffc777;
+} /* yellow */
 
 #temperature.critical {
     color: #ff757f;
