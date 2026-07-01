@@ -20,7 +20,7 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 
 -- Screenshots
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("sh -lc '/home/yegor/.local/bin/screenshot-area"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("sh -lc '/home/yegor/.local/bin/screenshot-area'"))
 hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("sh -lc '/home/yegor/.local/bin/screenshot-full'"))
 
 -- Notifications
