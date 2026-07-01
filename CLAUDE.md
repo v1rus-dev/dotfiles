@@ -17,6 +17,8 @@ Applying changes:
 - Zsh: `source ~/.zshrc` or open a new shell.
 - Most other tools (waybar, rofi) restart on Hyprland reload via autostart, or restart the process directly.
 
+**Before every commit, verify symlinks are correct.** Because config is symlinked into `$HOME`, a tracked file only affects the live system if the corresponding `~/...` path resolves back into this repo. Before committing changes to any config, confirm the live path is a symlink pointing into the repo — e.g. `readlink -f ~/.config/<tool>` should land under `~/dotfiles/`. A newly added file that isn't symlinked yet takes no effect until linked by hand; flag that instead of committing silently.
+
 ## Hyprland config architecture (the non-obvious part)
 
 Hyprland here is configured in **Lua**, not the classic `hyprland.conf` syntax:
