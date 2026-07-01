@@ -1,8 +1,12 @@
 show=drun
-width=500
+width=580
+lines=10
 prompt=Search
 insensitive=true
 allow_markup=true
+allow_images=true
+image_size=28
 dynamic_lines=true
 hide_scroll=true
+no_actions=true
 gtk_dark=true

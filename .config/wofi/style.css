@@ -1,54 +1,79 @@
-/* wofi — палитра Tokyo Night Moon (в тон waybar / GTK-теме) */
+/* ============================================================
+   wofi — палитра Tokyo Night Moon
+   (в тон waybar / GTK-теме Tokyonight-BL-MB-Dark-Moon)
+   ------------------------------------------------------------
+   bg #222436  bg_dark #1e2030  bg_highlight #2f334d
+   fg #c8d3f5  fg_dark #828bb8  comment #636da6
+   blue #82aaff  cyan #86e1fc  teal #4fd6be
+   ============================================================ */
 
-window {
-    background-color: rgba(30, 32, 48, 0.96);   /* bg_dark #1e2030 */
-    border: 2px solid #82aaff;                  /* blue accent */
-    border-radius: 12px;
+* {
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
-    font-size: 13px;
+    font-size: 15px;
+}
+
+/* ---- Окно: плавающий остров, приглушённая синяя кромка ---- */
+window {
+    background-color: rgba(30, 32, 48, 0.97);       /* bg_dark #1e2030 */
+    border: 1px solid rgba(130, 170, 255, 0.18);    /* subtle blue edge */
+    border-radius: 14px;
     color: #c8d3f5;
 }
 
 #outer-box {
     margin: 0;
-    padding: 8px;
+    padding: 14px;
 }
 
+/* ---- Поле ввода ---- */
 #input {
-    margin-bottom: 8px;
-    padding: 8px 12px;
-    border: 1px solid rgba(130, 170, 255, 0.25);
-    border-radius: 8px;
-    background-color: #222436;                  /* bg */
+    margin: 0 0 12px 0;
+    padding: 7px 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #2f334d;                       /* bg_highlight */
     color: #c8d3f5;
+    caret-color: #82aaff;
 }
 
 #input:focus {
-    border-color: #82aaff;
+    border-color: rgba(130, 170, 255, 0.45);
+    background-color: #2a2e45;
 }
 
-#inner-box {
-    margin: 0;
+#input image {
+    color: #636da6;                                  /* comment — иконка поиска */
 }
 
+#inner-box,
 #scroll {
     margin: 0;
+    border: none;
+}
+
+/* ---- Записи ---- */
+#entry {
+    margin: 2px 0;
+    padding: 11px 14px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+#entry image {
+    margin-right: 12px;
 }
 
 #text {
     color: #c8d3f5;
-    padding: 0 6px;
+    padding: 0 2px;
 }
 
-#entry {
-    padding: 7px 10px;
-    border-radius: 8px;
-}
-
+/* ---- Выделение: приглушённый синий, не неон ---- */
 #entry:selected {
-    background-color: #82aaff;
+    background-color: rgba(130, 170, 255, 0.16);
+    box-shadow: inset 3px 0 0 0 #82aaff;             /* тонкий синий акцент слева */
 }
 
 #entry:selected #text {
-    color: #1b1e2e;
+    color: #c8d3f5;
 }

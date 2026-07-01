@@ -48,7 +48,7 @@
   "custom/power": {
     "format": "󰐥",
     "tooltip": false,
-    "on-click": "wlogout",
+    "on-click": "$HOME/.config/wofi/menus/power.sh",
   },
 
   "hyprland/workspaces": {
