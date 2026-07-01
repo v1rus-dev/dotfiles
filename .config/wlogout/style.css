@@ -6,16 +6,16 @@
     text-shadow: none;
 }
 
-/* Dim crust overlay behind the button grid (matches rofi dim). */
+/* Dim crust overlay behind the button grid (matches wofi dim). */
 window {
     background-color: rgba(17, 17, 27, 0.82);
 }
 
 button {
     color: #cdd6f4;
-    /* surface0 card, same fill as rofi list elements */
+    /* surface0 card, same fill as wofi list elements */
     background-color: rgba(49, 50, 68, 0.70);
-    /* lavender hairline border, kept in sync with waybar / rofi */
+    /* lavender hairline border, kept in sync with waybar / wofi */
     border: 1px solid rgba(180, 190, 254, 0.18);
     border-radius: 14px;
     background-repeat: no-repeat;

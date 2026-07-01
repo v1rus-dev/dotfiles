@@ -1,171 +1,182 @@
+/* ============================================================
+   Floating islands — палитра Tokyo Night Moon
+   (в тон GTK-теме Tokyonight-BL-MB-Dark-Moon)
+   ------------------------------------------------------------
+   bg #222436  bg_dark #1e2030  bg_highlight #2f334d
+   fg #c8d3f5  fg_dark #828bb8  comment #636da6
+   blue #82aaff  cyan #86e1fc  teal #4fd6be  green #c3e88d
+   magenta #c099ff  yellow #ffc777  red #ff757f
+   ============================================================ */
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-family:
+        "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Roboto, Helvetica,
+        Arial, sans-serif;
     font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
     background: transparent;
-    color: #cdd6f4;
+    color: #c8d3f5;
 }
 
-/* Only the right group is a shared card; center is unused (no empty box). */
-.modules-right {
-    background: rgba(30, 30, 46, 0.82);
-    border: 1px solid rgba(180, 190, 254, 0.18);
-    border-radius: 8px;
-    padding: 4px 8px;
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
-/* Left side: each module is its own separate card, not one shared box. */
-.modules-left {
-    background: transparent;
+button {
     border: none;
-    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-/* Center: taskbar of running windows as its own card. */
-.modules-center {
-    background: transparent;
-    border: none;
-    padding: 0;
-}
-
-/* No shared container: each window is its own square card. */
-#taskbar {
-    background: transparent;
-    border: none;
-    padding: 2;
-}
-
-/* Each task = its own square card, fully clickable/highlightable (no inner padding). */
-#taskbar button {
-    background: rgba(30, 30, 46, 0.82);
-    border: 1px solid rgba(180, 190, 254, 0.18);
-    border-radius: 8px;
-    /* symmetric horizontal padding widens to a square AND centers the icon
-     (min-width would left-align it); no vertical margin -> fill bar height */
-    padding: 0 8px;
-    margin: 0 4px;
-}
-
-#taskbar button:hover {
-    background: rgba(137, 180, 250, 0.18);
-    border-color: rgba(180, 190, 254, 0.35);
-}
-
-#taskbar button.active {
-    background: rgba(137, 180, 250, 0.3);
-    border-color: #89b4fa;
-}
-
-/* spacing=0 globally, so left cards get their gap from a margin. */
+/* ---- Floating islands ---- */
 #custom-launcher,
 #workspaces,
-#window {
-    background: rgba(30, 30, 46, 0.82);
-    border: 1px solid rgba(180, 190, 254, 0.18);
-    border-radius: 8px;
-    margin-right: 8px;
+#status,
+#clock,
+#custom-power {
+    background-color: rgba(30, 32, 48, 0.92); /* bg_dark #1e2030 */
+    border: 1px solid rgba(130, 170, 255, 0.12); /* subtle blue edge */
+    border-radius: 11px;
+    margin: 0 5px;
+    padding: 0 4px;
+    box-shadow: 0 2px 12px rgba(15, 17, 28, 0.45);
 }
 
+.modules-left > widget:first-child > #custom-launcher {
+    margin-left: 2px;
+}
+.modules-right > widget:last-child > #custom-power {
+    margin-right: 2px;
+}
+
+/* ---- Launcher / Power buttons ---- */
 #custom-launcher {
-    color: #89b4fa;
-    font-size: 18px;
-    padding: 4px 10px;
+    color: #82aaff; /* blue */
+    font-size: 15px;
+    padding: 0 13px;
 }
 
-#workspaces {
-    padding: 4px 6px;
+#custom-power {
+    color: #ff757f; /* red */
+    font-size: 14px;
+    padding: 0 13px;
 }
 
+#custom-launcher:hover {
+    background-color: rgba(130, 170, 255, 0.14);
+}
+#custom-power:hover {
+    background-color: rgba(255, 117, 127, 0.14);
+}
+
+/* ---- Workspaces ---- */
 #workspaces button {
-    color: #6c7086;
-    padding: 0 8px;
-    margin: 0 2px;
-    border-radius: 6px;
+    padding: 0 9px;
+    margin: 3px 2px;
+    color: #636da6; /* comment — dimmed inactive */
+    border-radius: 7px;
+}
+
+#workspaces button:hover {
+    background-color: rgba(130, 170, 255, 0.1);
+    color: #c8d3f5;
+    text-shadow: none;
 }
 
 #workspaces button.active {
-    color: #11111b;
-    background: #89b4fa;
+    background-color: #82aaff; /* blue accent */
+    color: #1b1e2e;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
-    background: #f38ba8;
+    background-color: #ff757f; /* red */
+    color: #1b1e2e;
 }
 
-#window {
-    color: #cdd6f4;
-    padding: 4px 10px;
-}
-
-/* Empty workspace (no window) -> hide the window card entirely.
-   Waybar puts the `empty` class on window#waybar, not on #window. */
-window#waybar.empty #window {
-    background: transparent;
-    border-color: transparent;
-    padding: 0;
-    margin-right: 0;
-}
-
-#tray,
-#network,
-#pulseaudio,
-#battery,
-#clock,
-#language,
-#custom-power {
-    padding: 0 8px;
-    color: #cdd6f4;
-}
-
-#language {
-    color: #fab387;
-}
-
-#network {
-    color: #94e2d5;
-}
-
-#pulseaudio {
-    color: #cba6f7;
-}
-
-#battery {
-    color: #a6e3a1;
-}
-
-#battery.warning {
-    color: #f9e2af;
-}
-
-#battery.critical {
-    color: #f38ba8;
-}
-
+/* ---- Clock island ---- */
 #clock {
-    color: #89b4fa;
+    padding: 0 14px;
+    color: #c8d3f5;
 }
 
-#custom-power {
-    color: #f38ba8;
-    font-size: 16px;
-}
-
+/* ---- Status group: shared island, per-module accents ---- */
+#cpu,
+#memory,
+#temperature,
+#bluetooth,
+#pulseaudio,
+#network,
+#idle_inhibitor,
+#tray,
 #custom-notification {
-    padding: 0 8px;
-    color: #cdd6f4;
+    background: transparent;
+    padding: 0 9px;
+    color: #c8d3f5;
 }
 
-#custom-notification.notification {
-    color: #f9e2af;
-}
+#cpu {
+    color: #c3e88d;
+} /* green */
+#memory {
+    color: #c099ff;
+} /* magenta */
+#temperature {
+    color: #ffc777;
+} /* yellow */
+#bluetooth {
+    color: #82aaff;
+} /* blue */
+#pulseaudio {
+    color: #86e1fc;
+} /* cyan */
+#network {
+    color: #4fd6be;
+} /* teal */
 
+#temperature.critical {
+    color: #ff757f;
+} /* red */
+#network.disconnected {
+    color: #ff757f;
+}
+#pulseaudio.muted {
+    color: #636da6;
+}
+#idle_inhibitor.activated {
+    color: #ffc777;
+} /* awake — yellow */
+
+/* Notification states (swaync) */
+#custom-notification.notification,
+#custom-notification.inhibited-notification {
+    color: #ff757f; /* есть непрочитанные — красный */
+}
 #custom-notification.dnd-notification,
-#custom-notification.dnd-none {
-    color: #f38ba8;
+#custom-notification.dnd-none,
+#custom-notification.dnd-inhibited-notification,
+#custom-notification.dnd-inhibited-none {
+    color: #636da6; /* не беспокоить — приглушённый */
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Tray drawer: «ведущий» значок-стрелка, трей выезжает по наведению */
+#custom-tray-toggle {
+    color: #828bb8;
+    padding: 0 9px;
+}
+#custom-tray-toggle:hover {
+    color: #c8d3f5;
+}
+/* иконки трея, спрятанные в drawer */
+#tray.tray-item {
+    padding-left: 4px;
 }

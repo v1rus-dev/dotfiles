@@ -4,7 +4,7 @@
 
 terminal       = "kitty"
 browser        = "firefox"
-fileManager    = "dolphin"
+fileManager    = "nautilus"
 mainMod        = "SUPER" -- Sets "Windows" key as main modifier
-launcher       = "rofi -show drun"
-commandPalette = "~/.config/rofi/menus/main.sh"
+launcher       = "wofi --show drun"
+commandPalette = "~/.config/wofi/menus/main.sh"

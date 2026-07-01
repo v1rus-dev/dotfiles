@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source "$HOME/.config/rofi/menus/lib.sh"
+source "$HOME/.config/wofi/menus/lib.sh"
 
 choice=$(printf "%s\n" \
 "󰕾 Audio" \
@@ -14,8 +14,8 @@ choice=$(printf "%s\n" \
 | menu "Command Palette")
 
 case "$choice" in
-  "󰕾 Audio")               exec "$HOME/.config/rofi/menus/audio.sh" ;;
-  "󰐥 Power")               exec "$HOME/.config/rofi/menus/power.sh" ;;
+  "󰕾 Audio")               exec "$HOME/.config/wofi/menus/audio.sh" ;;
+  "󰐥 Power")               exec "$HOME/.config/wofi/menus/power.sh" ;;
   "󰋩 Wallpapers")          run waypaper ;;
   "󰍹 Displays")            run wdisplays ;;
   "󰖩 Network")             run nm-connection-editor ;;

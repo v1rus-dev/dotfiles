@@ -1,0 +1,54 @@
+/* wofi — палитра Tokyo Night Moon (в тон waybar / GTK-теме) */
+
+window {
+    background-color: rgba(30, 32, 48, 0.96);   /* bg_dark #1e2030 */
+    border: 2px solid #82aaff;                  /* blue accent */
+    border-radius: 12px;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    color: #c8d3f5;
+}
+
+#outer-box {
+    margin: 0;
+    padding: 8px;
+}
+
+#input {
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(130, 170, 255, 0.25);
+    border-radius: 8px;
+    background-color: #222436;                  /* bg */
+    color: #c8d3f5;
+}
+
+#input:focus {
+    border-color: #82aaff;
+}
+
+#inner-box {
+    margin: 0;
+}
+
+#scroll {
+    margin: 0;
+}
+
+#text {
+    color: #c8d3f5;
+    padding: 0 6px;
+}
+
+#entry {
+    padding: 7px 10px;
+    border-radius: 8px;
+}
+
+#entry:selected {
+    background-color: #82aaff;
+}
+
+#entry:selected #text {
+    color: #1b1e2e;
+}
