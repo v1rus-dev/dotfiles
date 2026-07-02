@@ -1,0 +1,15 @@
+require("modules.variables")
+require("modules.env")
+
+require("modules.permissions")
+require("modules.misc")
+
+require("modules.monitors")
+require("modules.workspaces")
+require("modules.input")
+require("modules.appearance")
+require("modules.animations")
+require("modules.layouts")
+require("modules.rules")
+require("modules.binds")
+require("modules.autostart")
