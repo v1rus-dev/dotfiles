@@ -67,3 +67,89 @@
   background: #cdd6f4;
   border-radius: 999px;
 }
+
+.widget-mpris {
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 16px;
+  padding: 8px;
+  margin: 8px;
+}
+
+.widget-mpris-title {
+  color: #cdd6f4;
+  font-weight: 700;
+}
+
+.widget-mpris-subtitle {
+  color: #bac2de;
+}
+
+.widget-mpris button {
+  color: #cdd6f4;
+  background: transparent;
+  border-radius: 999px;
+}
+
+.widget-mpris button:hover {
+  background: rgba(137, 180, 250, 0.25);
+}
+
+.widget-volume {
+  background: rgba(49, 50, 68, 0.6);
+  color: #cdd6f4;
+  border-radius: 16px;
+  padding: 8px;
+  margin: 8px;
+}
+
+.widget-volume trough highlight {
+  background: #89b4fa;
+  border-radius: 999px;
+}
+
+/* Per-app volume: give each app row real height so sliders aren't crushed
+   when the section expands, and let the whole section grow instead of being
+   squeezed by the notifications widget sharing the fixed control-center height. */
+.per-app-volume {
+  background: rgba(30, 30, 46, 0.9);
+  border-radius: 14px;
+  margin: 8px;
+  padding: 4px;
+  min-height: 180px;
+}
+
+.per-app-volume row {
+  min-height: 44px;
+  padding: 4px 6px;
+}
+
+.per-app-volume row image {
+  -gtk-icon-size: 24px;
+  margin-right: 8px;
+}
+
+.widget-buttons-grid {
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 16px;
+  padding: 8px;
+  margin: 8px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: rgba(30, 30, 46, 0.9);
+  color: #cdd6f4;
+  border-radius: 14px;
+  padding: 10px;
+  margin: 4px;
+  font-size: 18px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: #89b4fa;
+  color: #1e1e2e;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+  background: #f38ba8;
+  color: #1e1e2e;
+}

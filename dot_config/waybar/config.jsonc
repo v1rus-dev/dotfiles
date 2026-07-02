@@ -104,7 +104,9 @@
       "car": "",
       "default": ["󰕼", "󰕽", "󰕾"],
     },
-    "on-click": "pavucontrol",
+    // Toggle floating pwvucontrol popup: close if open, otherwise launch (see hypr rules.lua)
+    "on-click": "pgrep -x pwvucontrol >/dev/null && pkill -x pwvucontrol || pwvucontrol",
+    "on-click-right": "pavucontrol",
   },
   "network": {
     "format-wifi": "󰖩  {essid} {signalStrength}%",
