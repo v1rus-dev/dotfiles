@@ -1,0 +1,7 @@
+# prepend_keymap merges on top of yazi's defaults, so all built-in bindings stay intact.
+[[mgr.prepend_keymap]]
+on   = "T"
+# `shell` runs in yazi's current directory, so kitty inherits it as its working dir.
+# --orphan keeps the terminal alive after yazi exits.
+run  = "shell 'kitty' --orphan"
+desc = "Open terminal in the current directory"
