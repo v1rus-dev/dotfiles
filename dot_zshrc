@@ -34,6 +34,15 @@ eval "$(zoxide init zsh)"
 # Starship
 eval "$(starship init zsh)"
 
+# Terminal window title (shown in Waybar): running program while a command
+# executes, terminal name at the prompt — overrides kitty's default cwd (~) title.
+autoload -Uz add-zsh-hook
+_wb_set_title() { printf '\e]2;%s\a' "$1" }
+_wb_title_precmd()  { _wb_set_title "kitty" }
+_wb_title_preexec() { _wb_set_title "${1%% *}" }
+add-zsh-hook precmd  _wb_title_precmd
+add-zsh-hook preexec _wb_title_preexec
+
 # Aliases
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -la --icons --group-directories-first'
@@ -57,4 +66,4 @@ alias csync="$HOME/.claude/hooks/sync-settings.sh"
 
 # Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh

@@ -13,4 +13,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprctl setcursor Hackneyed-24px 20")
 
     hl.exec_cmd("pgrep awww-daemon >/dev/null || awww-daemon")
+
+    -- hyprshell: Windows-style Alt+Tab window switcher daemon.
+    hl.exec_cmd("pgrep -x hyprshell >/dev/null || hyprshell run")
 end)
