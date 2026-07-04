@@ -1,109 +1,154 @@
+/* ============================================================
+   swaync control center — палитра Tokyo Night Moon
+   (в тон waybar и GTK-теме Tokyonight-BL-MB-Dark-Moon)
+   ------------------------------------------------------------
+   bg #222436  bg_dark #1e2030  bg_highlight #2f334d
+   fg #c8d3f5  fg_dark #828bb8  comment #636da6
+   blue #82aaff  cyan #86e1fc  teal #4fd6be  green #c3e88d
+   magenta #c099ff  yellow #ffc777  red #ff757f
+   ============================================================ */
+
+/* Саму карточку уведомления swaync красит глубокими селекторами
+   (.notification-row .notification-background .notification …),
+   переспорить их одиночными классами нельзя — поэтому тему карточки,
+   фон наведения (ripple) и фокус задаём через его же переменные.
+   Дублируем в @define-color как fallback для старых веток стиля. */
+:root {
+  --cc-bg: rgba(34, 36, 54, 0.94); /* bg #222436 */
+  --noti-bg: 30, 32, 48; /* bg_dark #1e2030 (триплет для rgba(var(...), alpha)) */
+  --noti-bg-alpha: 0.96;
+  --noti-bg-darker: rgb(26, 27, 42);
+  --noti-bg-hover: rgb(47, 51, 77); /* bg_highlight — тон наведения/ripple */
+  --noti-bg-focus: rgba(47, 51, 77, 0.6);
+  --noti-border-color: rgba(130, 170, 255, 0.12); /* subtle blue edge — как в waybar */
+  --noti-close-bg: #ff757f; /* red */
+  --noti-close-bg-hover: #ff8b93;
+  --text-color: rgb(200, 211, 245); /* fg #c8d3f5 */
+  --border-radius: 14px;
+  --notification-icon-size: 48px;
+  --font-size-summary: 14px;
+  --font-size-body: 13px;
+}
+
+@define-color cc-bg rgba(34, 36, 54, 0.94);
+@define-color noti-bg rgba(30, 32, 48, 0.96);
+@define-color noti-bg-hover rgb(47, 51, 77);
+@define-color noti-bg-focus rgba(47, 51, 77, 0.6);
+@define-color noti-border-color rgba(130, 170, 255, 0.12);
+@define-color text-color rgb(200, 211, 245);
+
 * {
   font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
   font-size: 14px;
 }
 
 .control-center {
-  background: rgba(24, 24, 37, 0.92);
-  border: 1px solid rgba(137, 180, 250, 0.35);
+  background: rgba(34, 36, 54, 0.94); /* bg #222436 */
+  border: 1px solid rgba(130, 170, 255, 0.14);
   border-radius: 18px;
   padding: 12px;
 }
 
-.notification {
-  background: rgba(30, 30, 46, 0.96);
-  border: 1px solid rgba(137, 180, 250, 0.25);
-  border-radius: 16px;
-  padding: 10px;
-  margin: 8px;
+/* Боковые поля карточки: дефолт swaync = 6px 12px (глубже виджетов).
+   Селектор с .control-center-list — выше специфичности дефолта, чтобы
+   гарантированно победить; горизонталь 8px = margin виджетов → края
+   карточек уведомлений выровнены с mpris/volume/dnd. */
+.control-center .control-center-list .notification-row .notification-background {
+  padding: 4px 8px;
 }
 
-.notification-content {
-  background: transparent;
+/* Дефолт вешает на карточки в центре тяжёлую тень-ореол
+   (--notification-shadow), которой нет у виджетов → они «висят» и
+   выглядят несведёнными. Убираем, чтобы был тот же плоский вид. */
+.control-center .control-center-list .notification {
+  box-shadow: none;
 }
 
-.summary {
-  color: #cdd6f4;
-  font-weight: 700;
+/* Тело — мягче fg, время — приглушённый comment (иначе всё = --text-color) */
+.notification-row
+  .notification-background
+  .notification
+  .notification-default-action
+  .notification-content
+  .text-box
+  .body {
+  color: #a9b8e8;
+  font-weight: normal;
 }
-
-.body {
-  color: #bac2de;
-}
-
-.time {
-  color: #7f849c;
-}
-
-.close-button {
-  background: #f38ba8;
-  color: #1e1e2e;
-  border-radius: 999px;
+.notification-row
+  .notification-background
+  .notification
+  .notification-default-action
+  .notification-content
+  .text-box
+  .time {
+  color: #636da6;
 }
 
 .widget-title {
-  color: #cdd6f4;
+  color: #c8d3f5;
   font-weight: 700;
   margin: 8px;
 }
 
 .widget-dnd {
-  background: rgba(49, 50, 68, 0.8);
-  color: #cdd6f4;
+  background: rgba(47, 51, 77, 0.8); /* bg_highlight #2f334d */
+  color: #c8d3f5;
   border-radius: 14px;
   padding: 8px;
+  margin: 8px; /* был без margin — торчал шире mpris/volume */
 }
 
 .widget-dnd > switch {
-  background: #45475a;
+  background: #414868;
   border-radius: 999px;
 }
 
 .widget-dnd > switch:checked {
-  background: #89b4fa;
+  background: #82aaff; /* blue */
 }
 
 .widget-dnd > switch slider {
-  background: #cdd6f4;
+  background: #c8d3f5;
   border-radius: 999px;
 }
 
 .widget-mpris {
-  background: rgba(49, 50, 68, 0.6);
+  background: rgba(47, 51, 77, 0.6);
   border-radius: 16px;
   padding: 8px;
   margin: 8px;
 }
 
 .widget-mpris-title {
-  color: #cdd6f4;
+  color: #c8d3f5;
   font-weight: 700;
 }
 
 .widget-mpris-subtitle {
-  color: #bac2de;
+  color: #a9b8e8;
 }
 
 .widget-mpris button {
-  color: #cdd6f4;
+  color: #c8d3f5;
   background: transparent;
   border-radius: 999px;
 }
 
 .widget-mpris button:hover {
-  background: rgba(137, 180, 250, 0.25);
+  background: rgba(130, 170, 255, 0.25);
 }
 
 .widget-volume {
-  background: rgba(49, 50, 68, 0.6);
-  color: #cdd6f4;
+  background: rgba(47, 51, 77, 0.6);
+  color: #c8d3f5;
   border-radius: 16px;
   padding: 8px;
   margin: 8px;
 }
 
 .widget-volume trough highlight {
-  background: #89b4fa;
+  background: #82aaff; /* blue */
   border-radius: 999px;
 }
 
@@ -111,7 +156,7 @@
    when the section expands, and let the whole section grow instead of being
    squeezed by the notifications widget sharing the fixed control-center height. */
 .per-app-volume {
-  background: rgba(30, 30, 46, 0.9);
+  background: rgba(30, 32, 48, 0.9); /* bg_dark */
   border-radius: 14px;
   margin: 8px;
   padding: 4px;
@@ -129,15 +174,15 @@
 }
 
 .widget-buttons-grid {
-  background: rgba(49, 50, 68, 0.6);
+  background: rgba(47, 51, 77, 0.6);
   border-radius: 16px;
   padding: 8px;
   margin: 8px;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-  background: rgba(30, 30, 46, 0.9);
-  color: #cdd6f4;
+  background: rgba(30, 32, 48, 0.9); /* bg_dark */
+  color: #c8d3f5;
   border-radius: 14px;
   padding: 10px;
   margin: 4px;
@@ -145,11 +190,11 @@
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: #89b4fa;
-  color: #1e1e2e;
+  background: #82aaff; /* blue */
+  color: #1e2030;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
-  background: #f38ba8;
-  color: #1e1e2e;
+  background: #ff757f; /* red */
+  color: #1e2030;
 }
