@@ -13,6 +13,7 @@ hl.bind(mainMod .. " + M",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 -- yazi is a TUI file manager, so it must run inside a terminal (-e), unlike a GUI FM launched directly.
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e " .. fileManager))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(guiFileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 --hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
@@ -72,3 +73,12 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ to
     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
     { locked = true, repeating = true })
+
+-- Drop hyprshell's hardcoded reverse-switch bind on Alt+Shift+Tab.
+-- hyprshell has no config option to disable it, and its daemon (re-)registers its binds
+-- after this config runs (at startup and after every `hyprctl reload`), so a one-time unbind
+-- races and loses. A light repeating timer keeps it removed; hl.unbind is a no-op when absent.
+-- Alt+grave (the other reverse trigger) is intentionally left in place.
+hl.timer(function()
+    hl.unbind("ALT + SHIFT + Tab")
+end, { timeout = 3000, type = "repeat" })
